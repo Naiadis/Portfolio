@@ -2,62 +2,57 @@ body {
   margin: 0;
   padding: 0;
   font-family: system-ui, sans-serif;
-  background: #f8f8f8;
-  color: #222;
+  background: linear-gradient(180deg, #835433 0%, #361f0f 100vh, #361f0f 100%);
   min-height: 100vh;
   width: 100vw;
   box-sizing: border-box;
 }
 
 main {
+  display: grid;
+  grid-template-rows: 100vh auto;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100vw;
-  box-sizing: border-box;
 }
 
-/* HeroSection video responsiveness */
 section {
-  position: relative;
   width: 100vw;
   height: 100vh;
+  position: relative;
   overflow: hidden;
+  display: grid;
+  place-items: center;
+  grid-row: 1;
 }
-section video {
+
+video {
+  width: auto;
+  height: 100vh;
+  object-fit: cover;
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   z-index: 1;
 }
-@media (max-width: 600px) {
-  section .z-10 h1 {
-    font-size: 2rem !important;
-  }
-  section .z-10 p {
-    font-size: 1rem !important;
-  }
+
+.brand-intro {
+  width: 100vw;
+  min-height: 40vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1rem 2rem 1rem;
+  background: #361f0f;
+  grid-row: 2;
+  text-align: center;
 }
 
-@media (max-width: 900px) {
-  main,
-  section,
-  video {
-    width: 100vw;
-    height: 100vh;
-  }
+@font-face {
+  font-family: "RaskalOner Trial";
+  src: url("./assets/RaskalOnerTrial-Write.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (max-width: 600px) {
-  main,
-  section,
-  video {
-    width: 100vw;
-    height: 100vh;
-  }
+.brand-intro p {
+  font-family: "RaskalOner Trial", sans-serif !important;
 }
