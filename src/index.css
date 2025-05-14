@@ -2,17 +2,31 @@ body {
   margin: 0;
   padding: 0;
   font-family: system-ui, sans-serif;
-  background: linear-gradient(180deg, #835433 0%, #361f0f 100vh, #361f0f 100%);
+  background: #361f0f;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+main::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, #835433 0%,#361f0f 100vh #361f0f 100%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 main {
-  display: grid;
-  grid-template-rows: 100vh auto;
+  display: block;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 section {
@@ -35,14 +49,52 @@ video {
 }
 
 .brand-intro {
-  width: 100vw;
-  min-height: 40vh;
+  width: 100%;
+  height: auto;
   display: grid;
   place-items: center;
-  padding: 3rem 1rem 2rem 1rem;
-  background: #361f0f;
-  grid-row: 2;
+  padding: 1.5rem;
+  background: #3a1812;
+  border-radius: 24px;
+  border: 2px solid #835433;
+  box-shadow: 0 0 32px #2a0e08cc;
   text-align: center;
+  margin: 2rem auto 0 auto;
+  max-width: 500px;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+.ambigram-container {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  margin-bottom: -2.5rem;
+  margin-top: 3rem;
+  margin-bottom: 7rem;
+  z-index: 2;
+  position: relative;
+}
+
+.ambigram-glow {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 16px #555651);
+  animation: ambigram-pulse 3s ease-in-out infinite;
+  transform: translateZ(0);
+  will-change: filter;
+}
+
+.brand-text {
+  font-family: "RaskalOner Trial", sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  letter-spacing: 0.01em;
+  max-width: 700px;
+  text-align: center;
+  line-height: 1.5;
 }
 
 @font-face {
@@ -53,6 +105,135 @@ video {
   font-display: swap;
 }
 
-.brand-intro p {
-  font-family: "RaskalOner Trial", sans-serif !important;
+@keyframes ambigram-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 16px #555651);
+  }
+  50% {
+    filter: drop-shadow(0 0 24px #aeaeab);
+  }
+}
+
+.blur-left {
+  position: absolute;
+  top: -1vw;
+  left: -3.5vw;
+  width: 6vw;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(131, 84, 51), #361f0f);
+  filter: blur(14px);
+}
+
+.blur-right {
+  position: absolute;
+  top: -1vw;
+  right: -3.5vw;
+  width: 6vw;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(131, 84, 51), #361f0f);
+  filter: blur(14px);
+}
+
+.blur-bottom {
+  position: absolute;
+  left: -1vw;
+  right: -1vw;
+  bottom: -4vh;
+  height: 7vh;
+  z-index: 1;
+  background: linear-gradient(to top, #361f0f 60%, #361f0f);
+  filter: blur(16px);
+}
+
+.vine {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  z-index: 3;
+}
+
+.vine-tl {
+  top: -27px;
+  left: -27px;
+  rotate: -90deg;
+  scale: 1.5;
+}
+.vine-tr {
+  top: -27px;
+  right: -27px;
+  scale: 1.5;
+}
+.vine-bl {
+  bottom: -27px;
+  left: -27px;
+  rotate: 180deg;
+  scale: 1.5;
+}
+.vine-br {
+  bottom: -27px;
+  right: -27px;
+  rotate: 90deg;
+  scale: 1.5;
+}
+
+.page-content {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+.particles-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(var(--x, 10px), var(--y, 10px));
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+}
+
+@keyframes particle-glow {
+  0% {
+    filter: drop-shadow(0 0 2px #f6f6f5);
+    opacity: 0.8;
+  }
+  50% {
+    filter: drop-shadow(0 0 4px #e2c7a1);
+    opacity: 0.5;
+  }
+  100% {
+    filter: drop-shadow(0 0 2px #f6f6f5);
+    opacity: 0.8;
+  }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  will-change: transform, opacity;
+  animation: particle-float 8s ease-in-out infinite alternate,
+    particle-glow 5s ease-in-out infinite;
+  --x: 0px;
+  --y: 0px;
 }
