@@ -20,13 +20,15 @@ function App() {
 
   return (
     <main>
-      <HeroSection />
-      <div className="page-content">
+      <section className="hero-section">
+        <HeroSection />
+      </section>
+      <section className="page-content">
         <FloatingParticles />
         <div className="ambigram-container">
           <img src={ambigram} alt="Ambigram" className="ambigram-glow" />
         </div>
-        <section className="brand-intro">
+        <div className="brand-intro">
           {/* Corner vines */}
           <img src={CornerVines} alt="" className="vine vine-tl" />
           <img src={CornerVines} alt="" className="vine vine-tr" />
@@ -41,7 +43,7 @@ function App() {
             Each piece is placed with care into a vessel of velvet and wood,
             where a silent spell seals it for the soul it seeks.
           </p>
-        </section>
+        </div>
         <div className="particles-bg">
           <div
             className="particle-strong"
@@ -188,7 +190,7 @@ function App() {
             }}
           />
         </div>
-      </div>
+      </section>
     </main>
   );
 }
