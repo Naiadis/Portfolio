@@ -1,9 +1,9 @@
+/* ===== BASE STYLES ===== */
 html,
 body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
 }
 
 body {
@@ -12,8 +12,28 @@ body {
   width: 100vw;
   box-sizing: border-box;
   overflow-x: hidden;
+  background: #361f0f;
 }
 
+main {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  background: #361f0f;
+}
+
+/* ===== FONTS ===== */
+@font-face {
+  font-family: "RaskalOner Trial";
+  src: url("./assets/RaskalOnerTrial-Write.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== SECTION LAYOUT ===== */
 section {
   width: 100vw;
   height: 100vh;
@@ -24,6 +44,21 @@ section {
   grid-row: 1;
 }
 
+.hero-section,
+.page-content {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.page-content {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  background: url("./assets/Shadow.png") center center / cover no-repeat;
+}
+
+/* ===== HERO VIDEO ===== */
 video {
   width: auto;
   height: 100vh;
@@ -33,70 +68,7 @@ video {
   z-index: 1;
 }
 
-.brand-intro {
-  width: 100%;
-  height: auto;
-  display: grid;
-  padding: 1.5rem;
-  background: #3a1812;
-  border-radius: 24px;
-  border: 2px solid #835433;
-  box-shadow: 0 0 32px #2a0e08cc;
-  text-align: center;
-  max-width: 500px;
-  position: relative;
-  z-index: 1;
-  overflow: visible;
-  margin-top: 4vh;
-  align-self: start;
-}
-
-.ambigram-container {
-  width: 100%;
-  display: grid;
-  justify-items: center;
-  z-index: 2;
-  position: relative;
-}
-
-.ambigram-glow {
-  max-width: 400px;
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 0 16px #555651);
-  animation: ambigram-pulse 3s ease-in-out infinite;
-  transform: translateZ(0);
-  will-change: filter;
-}
-
-.brand-text {
-  font-family: "RaskalOner Trial", sans-serif;
-  font-size: 1.2rem;
-  color: #fff;
-  letter-spacing: 0.01em;
-  max-width: 700px;
-  text-align: center;
-  line-height: 1.5;
-}
-
-@font-face {
-  font-family: "RaskalOner Trial";
-  src: url("./assets/RaskalOnerTrial-Write.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@keyframes ambigram-pulse {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 16px #555651);
-  }
-  50% {
-    filter: drop-shadow(0 0 24px #aeaeab);
-  }
-}
-
+/* ===== BLUR EFFECTS ===== */
 .blur-left,
 .blur-right {
   position: absolute;
@@ -127,45 +99,86 @@ video {
   filter: blur(16px);
 }
 
+/* ===== BRAND ELEMENTS ===== */
+.ambigram-container {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  z-index: 2;
+  position: relative;
+}
+
+.ambigram-glow {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 16px #555651);
+  animation: ambigram-pulse 3s ease-in-out infinite;
+  transform: translateZ(0);
+  will-change: filter;
+}
+
+.brand-intro {
+  width: 100%;
+  height: auto;
+  display: grid;
+  padding: 1.5rem;
+  background: #3a1812;
+  border-radius: 24px;
+  border: 2px solid #835433;
+  box-shadow: 0 0 32px #2a0e08cc;
+  text-align: center;
+  max-width: 500px;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  margin-top: 4vh;
+  align-self: start;
+}
+
+.brand-text {
+  font-family: "RaskalOner Trial", sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  letter-spacing: 0.01em;
+  max-width: 700px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ===== VINES ===== */
 .vine {
   position: absolute;
   width: 110px;
   height: 110px;
   z-index: 3;
+  scale: 1.5;
 }
 
 .vine-tl {
   top: -27px;
   left: -27px;
   rotate: -90deg;
-  scale: 1.5;
 }
+
 .vine-tr {
   top: -27px;
   right: -27px;
-  scale: 1.5;
 }
+
 .vine-bl {
   bottom: -27px;
   left: -27px;
   rotate: 180deg;
-  scale: 1.5;
 }
+
 .vine-br {
   bottom: -27px;
   right: -27px;
   rotate: 90deg;
-  scale: 1.5;
 }
 
-.page-content {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  z-index: 1;
-  background: url("./assets/Shadow.png") center center / cover no-repeat;
-}
-
+/* ===== PARTICLES ===== */
 .particles-bg {
   position: absolute;
   top: 0;
@@ -176,36 +189,6 @@ video {
   z-index: 0;
   overflow: visible;
   background: transparent;
-}
-
-@keyframes particle-float {
-  0% {
-    transform: translate(0, 0);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translate(var(--x, 10px), var(--y, 10px));
-    opacity: 0.5;
-  }
-  100% {
-    transform: translate(0, 0);
-    opacity: 0.8;
-  }
-}
-
-@keyframes particle-glow {
-  0% {
-    filter: drop-shadow(0 0 2px #f6f6f5);
-    opacity: 0.8;
-  }
-  50% {
-    filter: drop-shadow(0 0 4px #e2c7a1);
-    opacity: 0.5;
-  }
-  100% {
-    filter: drop-shadow(0 0 2px #f6f6f5);
-    opacity: 0.8;
-  }
 }
 
 .particle {
@@ -232,20 +215,6 @@ video {
   --dx: 0px;
 }
 
-@keyframes dust-fall {
-  0% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(var(--dx, 0px), 100vh);
-    opacity: 0;
-  }
-}
-
 .particle-strong {
   position: absolute;
   border-radius: 50%;
@@ -257,42 +226,7 @@ video {
   animation: particle-curve 7s linear infinite;
 }
 
-@keyframes particle-curve {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  20% {
-    transform: translate(20px, 30px) scale(1.1) rotate(-3deg);
-  }
-  40% {
-    transform: translate(50px, 60px) scale(0.95) rotate(2deg);
-  }
-  60% {
-    transform: translate(80px, 80px) scale(1.05) rotate(-2deg);
-  }
-  80% {
-    transform: translate(110px, 100px) scale(1) rotate(1deg);
-  }
-  100% {
-    transform: translate(140px, 120px) scale(1) rotate(0deg);
-  }
-}
-
-main {
-  height: 100vh;
-  width: 100vw;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  background: #361f0f;
-}
-
-.hero-section,
-.page-content {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
+/* ===== CAROUSEL ===== */
 .carousel-box {
   margin-top: 8vh;
   margin-bottom: 2vh;
@@ -368,6 +302,7 @@ main {
   pointer-events: none;
   transition: opacity 0.2s;
 }
+
 .carousel-box:hover .carousel-dots,
 .carousel-controls:hover + .carousel-dots {
   opacity: 1;
@@ -385,11 +320,84 @@ main {
   display: inline-block;
   box-shadow: none;
 }
+
 .carousel-dot.active {
   background: #fff;
   opacity: 1;
 }
+
 .carousel-dot:hover {
   box-shadow: 0 0 8px #fffbe6, 0 0 16px #835433;
   opacity: 1;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes ambigram-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 16px #555651);
+  }
+  50% {
+    filter: drop-shadow(0 0 24px #aeaeab);
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(var(--x, 10px), var(--y, 10px));
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+}
+
+@keyframes particle-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px #f6f6f5);
+    opacity: 0.8;
+  }
+  50% {
+    filter: drop-shadow(0 0 4px #e2c7a1);
+    opacity: 0.5;
+  }
+}
+
+@keyframes dust-fall {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx, 0px), 100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes particle-curve {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  20% {
+    transform: translate(20px, 30px) scale(1.1) rotate(-3deg);
+  }
+  40% {
+    transform: translate(50px, 60px) scale(0.95) rotate(2deg);
+  }
+  60% {
+    transform: translate(80px, 80px) scale(1.05) rotate(-2deg);
+  }
+  80% {
+    transform: translate(110px, 100px) scale(1) rotate(1deg);
+  }
+  100% {
+    transform: translate(140px, 120px) scale(1) rotate(0deg);
+  }
 }
