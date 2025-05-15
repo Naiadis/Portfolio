@@ -2,31 +2,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: system-ui, sans-serif;
-  background: #361f0f;
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
+  background: linear-gradient(180deg, #835433 0%, #361f0f 100vh, #361f0f 100%);
   box-sizing: border-box;
   overflow-x: hidden;
-}
-
-main::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: linear-gradient(180deg, #835433 0%,#361f0f 100vh #361f0f 100%);
-  z-index: -1;
-  pointer-events: none;
-}
-
-main {
-  display: block;
-  min-height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
-  position: relative;
 }
 
 section {
@@ -115,26 +95,23 @@ video {
   }
 }
 
-.blur-left {
-  position: absolute;
-  top: -1vw;
-  left: -3.5vw;
-  width: 6vw;
-  height: 100%;
-  z-index: 1;
-  background: linear-gradient(to bottom, rgba(131, 84, 51), #361f0f);
-  filter: blur(14px);
-}
-
+.blur-left,
 .blur-right {
   position: absolute;
   top: -1vw;
-  right: -3.5vw;
   width: 6vw;
   height: 100%;
   z-index: 1;
-  background: linear-gradient(to bottom, rgba(131, 84, 51), #361f0f);
+  background: linear-gradient(to bottom, #835433 0%, #361f0f 100%);
   filter: blur(14px);
+}
+
+.blur-left {
+  left: -3.5vw;
+}
+
+.blur-right {
+  right: -3.5vw;
 }
 
 .blur-bottom {
@@ -184,6 +161,7 @@ video {
   height: 100vh;
   width: 100vw;
   z-index: 1;
+  background: url("./assets/Shadow.png") center center / cover no-repeat;
 }
 
 .particles-bg {
@@ -236,4 +214,70 @@ video {
     particle-glow 5s ease-in-out infinite;
   --x: 0px;
   --y: 0px;
+}
+
+.particle-dust {
+  position: absolute;
+  top: -20px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff8;
+  pointer-events: none;
+  z-index: 2;
+  animation: dust-fall linear infinite, particle-glow 5s ease-in-out infinite;
+  --dx: 0px;
+}
+
+@keyframes dust-fall {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx, 0px), 100vh);
+    opacity: 0;
+  }
+}
+
+.particle-strong {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  width: 4px;
+  height: 4px;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #fffbe6);
+  animation: particle-curve 7s linear infinite;
+}
+
+@keyframes particle-curve {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  20% {
+    transform: translate(20px, 30px) scale(1.1) rotate(-3deg);
+  }
+  40% {
+    transform: translate(50px, 60px) scale(0.95) rotate(2deg);
+  }
+  60% {
+    transform: translate(80px, 80px) scale(1.05) rotate(-2deg);
+  }
+  80% {
+    transform: translate(110px, 100px) scale(1) rotate(1deg);
+  }
+  100% {
+    transform: translate(140px, 120px) scale(1) rotate(0deg);
+  }
+}
+
+main {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
 }
