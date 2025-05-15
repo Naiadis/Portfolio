@@ -292,3 +292,104 @@ main {
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
+
+.carousel-box {
+  margin-top: 8vh;
+  margin-bottom: 2vh;
+}
+
+.carousel-content {
+  font-family: "RaskalOner Trial", sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1.5;
+  height: 320px;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.carousel-btn {
+  background: none !important;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.carousel-btn img {
+  width: 44px !important;
+  height: 44px !important;
+  filter: drop-shadow(0 0 8px #6b7a3a) brightness(1.2) sepia(0.7)
+    hue-rotate(40deg) saturate(2);
+  transition: filter 0.25s cubic-bezier(0.4, 2, 0.6, 1), transform 0.2s;
+}
+
+.carousel-btn:hover img,
+.carousel-btn:focus img {
+  filter: drop-shadow(0 0 32px #6b7a3a) drop-shadow(0 0 16px #6b7a3a)
+    brightness(1.4) sepia(0.7) hue-rotate(40deg) saturate(2.5);
+  transform: scale(1.12);
+}
+
+.carousel-btn:focus:not(:hover) img {
+  filter: drop-shadow(0 0 8px #6b7a3a) brightness(1.2) sepia(0.7)
+    hue-rotate(40deg) saturate(2);
+  transform: none;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.carousel-box:hover .carousel-dots,
+.carousel-controls:hover + .carousel-dots {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #835433;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s, box-shadow 0.2s;
+  display: inline-block;
+  box-shadow: none;
+}
+.carousel-dot.active {
+  background: #fff;
+  opacity: 1;
+}
+.carousel-dot:hover {
+  box-shadow: 0 0 8px #fffbe6, 0 0 16px #835433;
+  opacity: 1;
+}
