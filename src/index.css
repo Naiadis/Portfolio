@@ -51,9 +51,11 @@ section {
 }
 
 .page-content {
-  position: relative;
+  display: grid;
+  place-items: center;
   height: 100vh;
   width: 100vw;
+  position: relative;
   z-index: 1;
   background: url("./assets/Shadow.png") center center / cover no-repeat;
 }
@@ -266,30 +268,22 @@ video {
   justify-content: center;
 }
 
-.carousel-btn:hover,
-.carousel-btn:focus {
-  background: none !important;
-  box-shadow: none !important;
-}
-
 .carousel-btn img {
   width: 44px !important;
   height: 44px !important;
-  filter: drop-shadow(0 0 8px #6b7a3a) brightness(1.2) sepia(0.7)
-    hue-rotate(40deg) saturate(2);
+  filter: drop-shadow(0 0 8px #835433);
   transition: filter 0.25s cubic-bezier(0.4, 2, 0.6, 1), transform 0.2s;
+  position: relative;
+  z-index: 1;
 }
 
-.carousel-btn:hover img,
-.carousel-btn:focus img {
-  filter: drop-shadow(0 0 32px #6b7a3a) drop-shadow(0 0 16px #6b7a3a)
-    brightness(1.4) sepia(0.7) hue-rotate(40deg) saturate(2.5);
+.carousel-btn:hover img {
+  filter: drop-shadow(0 0 32px #835433) drop-shadow(0 0 16px #835433);
   transform: scale(1.12);
 }
 
 .carousel-btn:focus:not(:hover) img {
-  filter: drop-shadow(0 0 8px #6b7a3a) brightness(1.2) sepia(0.7)
-    hue-rotate(40deg) saturate(2);
+  filter: drop-shadow(0 0 8px #835433);
   transform: none;
 }
 
@@ -298,15 +292,9 @@ video {
   justify-content: center;
   gap: 0.5rem;
   margin-top: 0.5rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
-}
-
-.carousel-box:hover .carousel-dots,
-.carousel-controls:hover + .carousel-dots {
   opacity: 1;
   pointer-events: auto;
+  transition: opacity 0.2s;
 }
 
 .carousel-dot {
@@ -333,7 +321,8 @@ video {
 
 /* ===== ANIMATIONS ===== */
 @keyframes ambigram-pulse {
-  0%, 100% {
+  0%,
+  100% {
     filter: drop-shadow(0 0 16px #555651);
   }
   50% {
@@ -357,7 +346,8 @@ video {
 }
 
 @keyframes particle-glow {
-  0%, 100% {
+  0%,
+  100% {
     filter: drop-shadow(0 0 2px #f6f6f5);
     opacity: 0.8;
   }
@@ -399,5 +389,71 @@ video {
   }
   100% {
     transform: translate(140px, 120px) scale(1) rotate(0deg);
+  }
+}
+
+.carousel-parallax-outer {
+  position: relative;
+  width: 100vw;
+  height: 50vh;
+  display: block;
+  overflow: visible;
+}
+
+.parallax-box {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%) scale(1) translateX(0);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.parallax-box.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+  transform: translate(-50%, -50%) scale(1) translateX(0);
+}
+
+.parallax-box.in-left {
+  animation: boxSlideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.parallax-box.in-right {
+  animation: boxSlideInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.parallax-box.out-left {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.92) translateX(-80px);
+  z-index: 1;
+}
+.parallax-box.out-right {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.92) translateX(80px);
+  z-index: 1;
+}
+.parallax-box.hidden {
+  display: none;
+}
+
+@keyframes boxSlideInLeft {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.92) translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) translateX(0);
+  }
+}
+@keyframes boxSlideInRight {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.92) translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) translateX(0);
   }
 }

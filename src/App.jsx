@@ -4,6 +4,7 @@ import "./index.css";
 import ambigram from "./assets/Ambigram.svg";
 import FloatingParticles from "./components/FloatingParticles";
 import NaiadisCarousel from "./components/NaiadisCarousel";
+import CornerVines from "./assets/CornerVines.svg";
 
 function App() {
   // Setup particle movement variables on component mount
