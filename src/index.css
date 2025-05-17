@@ -542,7 +542,7 @@ video {
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 0 16px #0004;
-  transition: background 0.5s;
+  transition: transform 0.3s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -594,18 +594,63 @@ video {
 .logo-card .vine-tl {
   top: -20px;
   left: -20px;
+  animation: vine-float-tl 4s ease-in-out infinite;
 }
+
 .logo-card .vine-tr {
   top: -20px;
   right: -20px;
+  animation: vine-float-tr 4s ease-in-out infinite;
 }
+
 .logo-card .vine-bl {
   bottom: -20px;
   left: -20px;
+  animation: vine-float-bl 4s ease-in-out infinite;
 }
+
 .logo-card .vine-br {
   bottom: -20px;
   right: -20px;
+  transform: scaleY(-1);
+  animation: vine-float-br 4s ease-in-out infinite;
+}
+
+@keyframes vine-float-tl {
+  0%,
+  100% {
+    transform: scaleX(-1) translateY(0);
+  }
+  50% {
+    transform: scaleX(-1) translateY(-10px);
+  }
+}
+@keyframes vine-float-tr {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes vine-float-bl {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes vine-float-br {
+  0%,
+  100% {
+    transform: scaleY(-1) translateY(0);
+  }
+  50% {
+    transform: scaleY(-1) translateY(-10px);
+  }
 }
 
 h2,
@@ -626,4 +671,23 @@ h2,
   width: auto;
   max-width: 100%;
   display: block;
+}
+
+.logo-img-bg:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 32px #e2c7a1cc, 0 0 16px #fff4;
+  transition: transform 0.3s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.3s;
+}
+
+.carousel-box .vine-tl {
+  animation: vine-float-tl 4s ease-in-out infinite;
+}
+.carousel-box .vine-tr {
+  animation: vine-float-tr 4s ease-in-out infinite;
+}
+.carousel-box .vine-bl {
+  animation: vine-float-bl 4s ease-in-out infinite;
+}
+.carousel-box .vine-br {
+  animation: vine-float-br 4s ease-in-out infinite;
 }
