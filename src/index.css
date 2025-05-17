@@ -1,13 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
+
 /* ===== BASE STYLES ===== */
 html,
 body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
 }
 
 body {
-  font-family: system-ui, sans-serif;
   min-height: 100vh;
   width: 100vw;
   box-sizing: border-box;
@@ -50,14 +52,27 @@ section {
   scroll-snap-stop: always;
 }
 
-.page-content {
-  display: grid;
-  place-items: center;
-  height: 100vh;
+/* ===== FIXED BACKGROUND ===== */
+.fixed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: url("./assets/Shadow.png") center center / cover no-repeat;
+}
+
+.page-content {
   position: relative;
   z-index: 1;
-  background: url("./assets/Shadow.png") center center / cover no-repeat;
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 /* ===== HERO VIDEO ===== */
@@ -126,17 +141,19 @@ video {
   height: auto;
   display: grid;
   padding: 1.5rem;
-  background: #3a1812;
+  background: rgb(131, 84, 51, 0.6);
   border-radius: 24px;
-  border: 2px solid #835433;
   box-shadow: 0 0 32px #2a0e08cc;
   text-align: center;
   max-width: 500px;
   position: relative;
   z-index: 1;
   overflow: visible;
-  /* margin-top: 0; */
   align-self: unset;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fff;
 }
 
 .brand-text {
@@ -158,27 +175,29 @@ video {
   scale: 1.5;
 }
 
-.vine-tl {
-  top: -27px;
-  left: -27px;
-  rotate: -90deg;
+.vine-tl,
+.vine-mirror-x {
+  top: -20px;
+  left: -20px;
+  transform: scaleX(-1);
 }
 
 .vine-tr {
-  top: -27px;
-  right: -27px;
+  top: -20px;
+  right: -20px;
 }
 
 .vine-bl {
-  bottom: -27px;
-  left: -27px;
+  bottom: -20px;
+  left: -20px;
   rotate: 180deg;
 }
 
-.vine-br {
-  bottom: -27px;
-  right: -27px;
-  rotate: 90deg;
+.vine-br,
+.vine-mirror-y {
+  bottom: -20px;
+  right: -20px;
+  transform: scaleY(-1);
 }
 
 /* ===== PARTICLES ===== */
@@ -236,11 +255,11 @@ video {
 }
 
 .carousel-content {
-  font-family: "RaskalOner Trial", sans-serif;
-  font-size: 1.2rem;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
   color: #fff;
   text-align: center;
-  line-height: 1.5;
   height: 320px;
   overflow: visible;
   display: flex;
@@ -341,10 +360,270 @@ video {
 }
 
 .carousel-snap-slide {
-  scroll-snap-align: start;
+  scroll-snap-align: center;
   min-height: 70vh;
   min-width: 100vw;
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: center;
+}
+
+/* ===== LOGO SECTION ===== */
+.logo-box {
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo-content {
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fff;
+  text-align: center;
+  height: auto;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  padding: 0 2rem;
+}
+
+.logo-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  background: rgba(131, 84, 51, 0.6); /* matches .brand-intro */
+  border-radius: 24px;
+  border: 2px solid #835433;
+  box-shadow: 0 0 32px #2a0e08cc;
+  padding: 2rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.logo-info {
+  flex: 1 1 320px;
+  min-width: 260px;
+  color: #2a0e08; /* dark brown for readability */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+}
+
+.logo-info h2 {
+  font-family: "RaskalOner Trial", serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #e2c7a1;
+  letter-spacing: 0.01em;
+}
+
+.logo-images {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  transition: opacity 0.5s;
+}
+
+.logo-img {
+  max-width: 220px;
+  width: 100%;
+  display: block;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.logo-img-invert {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.logo-toggle {
+  background: #835433;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.logo-toggle:hover {
+  background: #a97a4a;
+}
+
+@media (max-width: 800px) {
+  .logo-section {
+    flex-direction: column;
+    padding: 1.5rem 0.5rem;
+  }
+  .logo-images,
+  .logo-info {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+.brand-text,
+.brand-intro,
+.logo-info,
+.logo-content,
+.carousel-content {
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.carousel-content > span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* ===== LOGO GALLERY (INTERACTIVE) ===== */
+.logo-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 2rem 1rem;
+}
+
+.logo-card {
+  background: rgba(131, 84, 51, 0.6);
+  border-radius: 24px;
+  box-shadow: 0 0 32px #2a0e08cc;
+  padding: 2rem;
+  max-width: 900px;
+  width: 100%;
+  min-height: 480px;
+  height: 480px;
+  text-align: center;
+  transition: opacity 0.5s, transform 0.5s;
+  opacity: 1;
+  transform: translateY(0);
+  color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-title,
+.logo-desc {
+  color: #fff;
+}
+
+.logo-imgs {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img-bg {
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 0 16px #0004;
+  transition: background 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 260px;
+  min-height: 140px;
+  width: 320px;
+  height: 180px;
+  background: inherit;
+}
+
+.logo-img {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.logo-nav {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logo-nav button {
+  background: #835433;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.logo-nav button:hover {
+  background: #a97a4a;
+}
+
+/* Vines for logo card */
+.logo-card .vine {
+  position: absolute;
+  z-index: 2;
+  scale: 1.5;
+}
+
+.logo-card .vine-tl {
+  top: -20px;
+  left: -20px;
+}
+.logo-card .vine-tr {
+  top: -20px;
+  right: -20px;
+}
+.logo-card .vine-bl {
+  bottom: -20px;
+  left: -20px;
+}
+.logo-card .vine-br {
+  bottom: -20px;
+  right: -20px;
+}
+
+h2,
+.logo-title,
+.brand-title,
+.logo-info h2,
+.carousel-content > span {
+  font-family: "RaskalOner Trial", serif;
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  letter-spacing: 0.01em;
+  font-weight: normal;
+}
+
+.logo-img-vert {
+  max-height: 120px;
+  width: auto;
+  max-width: 100%;
+  display: block;
 }
