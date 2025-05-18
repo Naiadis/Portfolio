@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import HeroSection from "./components/HeroSection";
 import "./index.css";
-import ambigram from "./assets/Ambigram.svg";
 import NaiadisCarousel from "./components/NaiadisCarousel";
 import LogoSection from "./components/LogoSection";
 import BackgroundWrapper from "./components/BackgroundWrapper";
+import ColorPaletteSection from "./components/ColorPaletteSection";
 
 function App() {
   // Setup particle movement variables on component mount
@@ -33,6 +33,9 @@ function App() {
         </section>
         <section className="page-content">
           <LogoSection />
+        </section>
+        <section className="page-content">
+          <ColorPaletteSection />
         </section>
       </BackgroundWrapper>
     </main>
