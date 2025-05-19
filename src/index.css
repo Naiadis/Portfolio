@@ -35,6 +35,14 @@ main {
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Kingthings Spikeless";
+  src: url("./assets/KingthingsSpikeless-lKPZ.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== SECTION LAYOUT ===== */
 section {
   width: 100vw;
@@ -1376,4 +1384,37 @@ h2,
 
 .enlarge-img-wrapper:hover .enlarge-icon svg {
   transform: scale(1.1);
+}
+
+.logo-fonts-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 2.5rem 0 1.5rem 0;
+}
+
+.font-sample {
+  color: #fff;
+  text-align: center;
+  font-size: 2.5rem;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  padding: 0.5rem 0;
+}
+
+.font-kingthings {
+  font-family: "Kingthings Spikeless", serif;
+  font-size: 4rem;
+  text-shadow: 0 2px 3px #0006;
+  letter-spacing: 0.1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-raskal {
+  font-family: "RaskalOner Trial", serif;
+  font-size: 3.5rem;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 8px #0006;
 }

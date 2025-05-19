@@ -32,6 +32,12 @@ const logoData = [
       },
     ],
   },
+  {
+    title: "Brand Typography",
+    desc: "The Naiadis logo system relies on two main typefaces: Kingthings Spikeless for titles, which gives a handcrafted, mystical feel, and Raskal Oner for body text, offering clarity and structure. This pairing balances personality with legibility, and is essential for the brand's visual identity.",
+    images: [],
+    fonts: true,
+  },
 ];
 
 export default function LogoSection() {
@@ -65,29 +71,38 @@ export default function LogoSection() {
         <h2 className="logo-title">{logoData[step].title}</h2>
         <p className="logo-desc">{logoData[step].desc}</p>
         <div className="logo-imgs">
-          {logoData[step].images.map((img, i) => {
-            const uniqueKey = `${img.type}-${i}`;
-            return (
-              <div
-                className="logo-img-bg"
-                style={{ background: img.bg }}
-                key={i}
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className={`logo-img${
-                    img.alt.includes("Vertical") ? " logo-img-vert" : ""
-                  }`}
-                  style={{
-                    transform: `rotate(${rotationAngles[uniqueKey] || 0}deg)`,
-                  }}
-                  onClick={() => handleImageClick(i, img.type)}
-                />
-                <div className="tooltip">Click to rotate</div>
+          {logoData[step].images.length > 0 ? (
+            logoData[step].images.map((img, i) => {
+              const uniqueKey = `${img.type}-${i}`;
+              return (
+                <div
+                  className="logo-img-bg"
+                  style={{ background: img.bg }}
+                  key={i}
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className={`logo-img${
+                      img.alt.includes("Vertical") ? " logo-img-vert" : ""
+                    }`}
+                    style={{
+                      transform: `rotate(${rotationAngles[uniqueKey] || 0}deg)`,
+                    }}
+                    onClick={() => handleImageClick(i, img.type)}
+                  />
+                  <div className="tooltip">Click to rotate</div>
+                </div>
+              );
+            })
+          ) : logoData[step].fonts ? (
+            <div className="logo-fonts-slide">
+              <div className="font-sample font-kingthings">
+                Kingthings Spikeless
               </div>
-            );
-          })}
+              <div className="font-sample font-raskal">Raskal Oner</div>
+            </div>
+          ) : null}
         </div>
         <div className="logo-nav">
           <button onClick={goLeft} disabled={step === 0}>
