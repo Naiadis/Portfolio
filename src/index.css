@@ -1143,8 +1143,8 @@ h2,
 
 .packaging-item {
   position: absolute;
-  width: 300px;
-  background: rgba(131, 84, 51, 0.6);
+  width: 400px;
+  background: rgba(131, 84, 51);
   border-radius: 24px;
   box-shadow: 0 0 32px #2a0e08cc;
   --r: calc(var(--position) - var(--offset));
@@ -1158,7 +1158,6 @@ h2,
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  color: #fff;
   border: 2px solid #835433;
 }
 
@@ -1276,4 +1275,105 @@ h2,
 .logo-card.packaging-card {
   max-width: 1050px;
   height: 70%;
+}
+
+.modal-img-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.modal-close:hover {
+  background: #e2c7a1;
+  color: #361f0f;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: zoom-out;
+}
+.modal-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 16px;
+  box-shadow: 0 0 32px #000a;
+  background: #fff;
+  cursor: default;
+}
+
+.enlarge-img-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enlarge-img-wrapper img {
+  transition: transform 0.2s;
+}
+
+.enlarge-img-wrapper:hover img {
+  transform: scale(1.04);
+  box-shadow: 0 0 16px #e2c7a1cc;
+}
+
+.enlarge-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 2;
+  backdrop-filter: blur(2px);
+}
+
+.enlarge-icon svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.enlarge-img-wrapper:hover .enlarge-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.enlarge-img-wrapper:hover .enlarge-icon svg {
+  transform: scale(1.1);
 }
