@@ -5,6 +5,7 @@ import NaiadisCarousel from "./components/NaiadisCarousel";
 import LogoSection from "./components/LogoSection";
 import BackgroundWrapper from "./components/BackgroundWrapper";
 import ColorPaletteSection from "./components/ColorPaletteSection";
+import PackagingSection from "./components/PackagingSection";
 
 function App() {
   // Setup particle movement variables on component mount
@@ -12,8 +13,8 @@ function App() {
     const particles = document.querySelectorAll(".particle");
     particles.forEach((particle) => {
       // Set random movement direction for each particle
-      const x = Math.random() * 30 - 15; // -15px to 15px
-      const y = Math.random() * 30 - 15; // -15px to 15px
+      const x = Math.random() * 30 - 15;
+      const y = Math.random() * 30 - 15;
       particle.style.setProperty("--x", `${x}px`);
       particle.style.setProperty("--y", `${y}px`);
     });
@@ -25,9 +26,6 @@ function App() {
         <HeroSection />
       </section>
       <BackgroundWrapper>
-        {/* <div className="ambigram-container">
-          <img src={ambigram} alt="Ambigram" className="ambigram-glow" />
-        </div> */}
         <section className="page-content">
           <NaiadisCarousel />
         </section>
@@ -36,6 +34,9 @@ function App() {
         </section>
         <section className="page-content">
           <ColorPaletteSection />
+        </section>
+        <section className="page-content">
+          <PackagingSection />
         </section>
       </BackgroundWrapper>
     </main>
