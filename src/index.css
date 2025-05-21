@@ -1418,3 +1418,93 @@ h2,
   letter-spacing: 0.08em;
   text-shadow: 0 2px 8px #0006;
 }
+
+/* ===== PROCESS MODAL ===== */
+.process-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+
+.process-modal {
+  position: relative;
+  background: #361f0f;
+  border: 2px solid #835433;
+  border-radius: 24px;
+  padding: 2rem;
+  max-width: 800px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  color: #fff;
+  box-shadow: 0 0 32px #2a0e08cc;
+}
+
+.process-modal h2 {
+  font-family: "RaskalOner Trial", serif;
+  font-size: 2rem;
+  color: #e2c7a1;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.01em;
+}
+
+.process-modal-content {
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.process-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(131, 84, 51, 0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.process-modal-close:hover {
+  background: #e2c7a1;
+  color: #361f0f;
+}
+
+.read-more-btn {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: rgba(131, 84, 51, 0.6);
+  color: #fff;
+  border: 1px solid #835433;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+.read-more-btn:hover {
+  background: #e2c7a1;
+  color: #361f0f;
+  transform: translateY(-2px);
+}
