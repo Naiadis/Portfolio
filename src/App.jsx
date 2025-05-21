@@ -27,16 +27,15 @@ import packagingImage4 from "./assets/Screenshot 2025-05-21 at 19.31.28.png";
 import packagingImage5 from "./assets/Screenshot 2025-05-21 at 19.29.13.png";
 import packagingImage6 from "./assets/Screenshot 2025-05-21 at 19.30.49.png";
 
-
 const sectionContent = {
   hero: {
     title: "The Creation Process",
     content: (
       <div>
         <p>
-            Here I will detail the Blender journey of creating the Naiadis online brand
-            identity. From the initial idea, to the final manifestation of the
-            brand's presence.
+          Here I will detail the Blender journey of creating the Naiadis online
+          brand identity. From the initial idea, to the final manifestation of
+          the brand's presence.
         </p>
         <br />
         <br />
@@ -52,7 +51,6 @@ const sectionContent = {
             gap: "1rem",
           }}
         >
-          
           <img
             src={heroScreenshot1}
             alt="Hero section screenshot 1"
@@ -61,7 +59,8 @@ const sectionContent = {
               borderRadius: "8px",
               border: "2px solid #835433",
             }}
-          /><p>
+          />
+          <p>
             I was very unsure with what I have created and I had a lot of self
             doubt.
           </p>
@@ -89,10 +88,10 @@ const sectionContent = {
           />
           <p>
             The details I chose to add were the vines, which I had to manually
-            trace from around the letter and readjust every single flower
-            to make sure they were facing the right direction (my computer
-            hated the high polygon count of the flowers but I had no choice
-            if I wanted to keep the quality).
+            trace from around the letter and readjust every single flower to
+            make sure they were facing the right direction (my computer hated
+            the high polygon count of the flowers but I had no choice if I
+            wanted to keep the quality).
           </p>
           <img
             src={heroScreenshot4}
@@ -104,7 +103,8 @@ const sectionContent = {
             }}
           />
           <p>
-            I added a sphere to use as an emiter for the petal particles I have created.
+            I added a sphere to use as an emiter for the petal particles I have
+            created.
           </p>
           <img
             src={heroScreenshot5}
@@ -116,8 +116,8 @@ const sectionContent = {
             }}
           />
           <p>
-            Changed a few settings of the particles to make them move
-            in a way that was reaching my vision.
+            Changed a few settings of the particles to make them move in a way
+            that was reaching my vision.
           </p>
           <img
             src={heroScreenshot6}
@@ -129,8 +129,8 @@ const sectionContent = {
             }}
           />
           <p>
-            I added force fields like, magnet, vortex, wind, to hit that sweet spot
-            between a realistic and a fantasy look.
+            I added force fields like, magnet, vortex, wind, to hit that sweet
+            spot between a realistic and a fantasy look.
           </p>
           <img
             src={heroScreenshot7}
@@ -142,9 +142,10 @@ const sectionContent = {
             }}
           />
           <p>
-            And of course, after the selection of the materials and setting up the scene,
-            there was a process of trial and error to get the right settings for the render.
-            Only after that I was able to render the 150 frames I needed to create the animation.
+            And of course, after the selection of the materials and setting up
+            the scene, there was a process of trial and error to get the right
+            settings for the render. Only after that I was able to render the
+            150 frames I needed to create the animation.
           </p>
           <img
             src={heroScreenshot8}
@@ -165,53 +166,56 @@ const sectionContent = {
       <div>
         <p>
           <br />
-          This section will reveal the "art" of crafting the Naiadis
-          ambigram. From the initial sketches to the final form, we'll
-          explore:
+          This section will reveal the "art" of crafting the Naiadis ambigram.
+          From the initial sketches to the final form, we'll explore:
           <br />
           <br />
         </p>
-        <p>I started from and ambition of creating my own ambigram because I
+        <p>
+          I started from and ambition of creating my own ambigram because I
           thought it would be a fun challenge. And it was a challange indeed,
-          especially tring to figure out how I can make the N look like the S at the end.
-          But everything got easier when I devided the letters differently.
+          especially tring to figure out how I can make the N look like the S at
+          the end. But everything got easier when I devided the letters
+          differently.
         </p>
         <img
-            src={logoImage}
-            alt="Hero section screenshot 8"
-            style={{
-              width: "100%",
-              borderRadius: "8px",
-              border: "2px solid #835433",
-            }}
-          />
-          <p>
-            I moved my work to Illustrator to create a more organised and clean version.
-            Here you can also see the initial color palette I had in mind.
-          </p>
-          <img
-            src={logoImage2}
-            alt="Hero section screenshot 8"
-            style={{
-              width: "100%",
-              borderRadius: "8px",
-              border: "2px solid #835433",
-            }}
-          />
-          <p>
-            Because the last version was too thin, it would have not worked for the final 3D
-            product I had in mind. So I had to combine it with a font to give it more weight
-            while still keeping the ambigram look and feel of the brand.
-          </p>
-          <img
-            src={logoImage3}
-            alt="Hero section screenshot 8"
-            style={{
-              width: "100%",
-              borderRadius: "8px",
-              border: "2px solid #835433",
-            }}
-          />
+          src={logoImage}
+          alt="Hero section screenshot 8"
+          style={{
+            width: "100%",
+            borderRadius: "8px",
+            border: "2px solid #835433",
+          }}
+        />
+        <p>
+          I moved my work to Illustrator to create a more organised and clean
+          version. Here you can also see the initial color palette I had in
+          mind.
+        </p>
+        <img
+          src={logoImage2}
+          alt="Hero section screenshot 8"
+          style={{
+            width: "100%",
+            borderRadius: "8px",
+            border: "2px solid #835433",
+          }}
+        />
+        <p>
+          Because the last version was too thin, it would have not worked for
+          the final 3D product I had in mind. So I had to combine it with a font
+          to give it more weight while still keeping the ambigram look and feel
+          of the brand.
+        </p>
+        <img
+          src={logoImage3}
+          alt="Hero section screenshot 8"
+          style={{
+            width: "100%",
+            borderRadius: "8px",
+            border: "2px solid #835433",
+          }}
+        />
       </div>
     ),
   },
@@ -222,13 +226,14 @@ const sectionContent = {
         <p>
           <br />
           Discover the alchemical process of creating vessels worthy of holding
-          Naiadis treasures. Why am I saying alchemical? Because I used my blood,
-          sweat and tears to create this. Literally.
+          Naiadis treasures. Why am I saying alchemical? Because I used my
+          blood, sweat and tears to create this. Literally.
           <br />
           <br />
         </p>
         <p>
-          I started by founding an already existing design that I could use as a base.
+          I started by founding an already existing design that I could use as a
+          base.
         </p>
         <img
           src={packagingImage2}
@@ -240,8 +245,8 @@ const sectionContent = {
           }}
         />
         <p>
-          I then added my own touch to it by designing the Naiadis logo 
-          and some vines to go around it.
+          I then added my own touch to it by designing the Naiadis logo and some
+          vines to go around it.
         </p>
         <img
           src={packagingImage}
@@ -253,7 +258,7 @@ const sectionContent = {
           }}
         />
         <p>
-          I made the corners of the box a bit more rounded and added a bit of a 
+          I made the corners of the box a bit more rounded and added a bit of a
           different texture to it.
         </p>
         <img
@@ -278,10 +283,11 @@ const sectionContent = {
           }}
         />
         <p>
-         What really brought the whole design to life was the scene.
-         Luckily it was an already existing one, so I just had to position my package 
-         and position the lights better. (I can't explain how many times I was praying to the gods of Blender
-         to not crash my computer when I was rendering the whole scene)
+          What really brought the whole design to life was the scene. Luckily it
+          was an already existing one, so I just had to position my package and
+          position the lights better. (I can't explain how many times I was
+          praying to the gods of Blender to not crash my computer when I was
+          rendering the whole scene)
         </p>
         <img
           src={packagingImage5}
@@ -292,13 +298,11 @@ const sectionContent = {
             border: "2px solid #835433",
           }}
         />
-        <p>
-          And here you can see the scene set up closer.
-        </p>
+        <p>And here you can see the scene set up closer.</p>
         <img
           src={packagingImage6}
           alt="Hero section screenshot 8"
-          style={{  
+          style={{
             width: "100%",
             borderRadius: "8px",
             border: "2px solid #835433",
@@ -313,6 +317,8 @@ function App() {
   const heroRef = useRef();
   const logoRef = useRef();
   const packagingRef = useRef();
+  const brandRef = useRef();
+  const colorPaletteRef = useRef();
   const [activeSection, setActiveSection] = useState("hero");
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -332,7 +338,9 @@ function App() {
   useEffect(() => {
     const sections = [
       { key: "hero", ref: heroRef },
+      { key: "brand", ref: brandRef },
       { key: "logo", ref: logoRef },
+      { key: "colorPalette", ref: colorPaletteRef },
       { key: "packaging", ref: packagingRef },
     ];
     const observer = new window.IntersectionObserver(
@@ -360,13 +368,17 @@ function App() {
         <HeroSection />
       </section>
       <BackgroundWrapper>
-        <section className="page-content">
+        <section className="page-content" ref={brandRef} data-section="brand">
           <NaiadisCarousel />
         </section>
         <section className="page-content" ref={logoRef} data-section="logo">
           <LogoSection />
         </section>
-        <section className="page-content">
+        <section
+          className="page-content"
+          ref={colorPaletteRef}
+          data-section="colorPalette"
+        >
           <ColorPaletteSection />
         </section>
         <section
