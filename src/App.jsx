@@ -26,6 +26,7 @@ import packagingImage3 from "./assets/Screenshot 2025-05-21 at 19.28.28.png";
 import packagingImage4 from "./assets/Screenshot 2025-05-21 at 19.31.28.png";
 import packagingImage5 from "./assets/Screenshot 2025-05-21 at 19.29.13.png";
 import packagingImage6 from "./assets/Screenshot 2025-05-21 at 19.30.49.png";
+import velvetPouch from "./assets/Screenshot 2025-05-21 at 20.03.41.png";
 
 const sectionContent = {
   hero: {
@@ -301,6 +302,25 @@ const sectionContent = {
         <p>And here you can see the scene set up closer.</p>
         <img
           src={packagingImage6}
+          alt="Hero section screenshot 8"
+          style={{
+            width: "100%",
+            borderRadius: "8px",
+            border: "2px solid #835433",
+          }}
+        />
+        <p>
+          As for the velvet pouch, I used the AI from Photoshop to create it.
+          it was a straight forward process, I just had to tell it what I wanted
+          and I tweaked a few details with the image that looked the closest to
+          what I imagined. I added the vertical logo to the pouch and that was
+          about it. If it seems like I didn't integrate enought AI into my work,
+          you are right. I could have used more, but I wanted to keep the
+          handcrafted look of the brand. (but in my defence I used the help of AI
+          to build this website)
+        </p>
+        <img
+          src={velvetPouch}
           alt="Hero section screenshot 8"
           style={{
             width: "100%",
